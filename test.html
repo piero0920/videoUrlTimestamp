@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>test</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <video controls id="media" preload="auto">
+      <source id="mp4" src="video_1.mp4" type="video/mp4">
+    </video>
+
+    <input placeholder="Waiting for current time" type="url" value="" class="current-url">
+
+    
+    <script type='text/javascript'>
+        var c = 1;
+        var video = document.getElementById('media');
+        var mp4 = document.getElementById('mp4');
+        video.addEventListener('ended',myHandler,false);
+     
+        function myHandler(e)
+        {
+     
+           if(!e) 
+           {
+              e = window.event; 
+           }
+           c++;
+           mp4.setAttribute("src","video_" + c + ".mp4");
+           video.load();
+           video.play();
+        }
+     
+    </script>
+    <script src="seek-from-url.js"></script>
+  </body>
+</html>
